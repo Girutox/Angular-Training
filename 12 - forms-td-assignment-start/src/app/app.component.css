@@ -1,0 +1,12 @@
+h2 {
+  text-decoration: underline;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.help-block {
+  color: red;
+  font-weight: bold;
+}
