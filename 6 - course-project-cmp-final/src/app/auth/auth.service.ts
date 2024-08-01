@@ -18,7 +18,7 @@ export interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  API_KEY = 'AIzaSyAdovLR38_gACTTLI_X7wLSUCMdrHRrOvk'
+  API_KEY = ''
   userChanged = new BehaviorSubject<User>(null);
   private autoLogoutTimer: any;
 
