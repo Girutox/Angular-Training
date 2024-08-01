@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-tasks',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input({ required: true }) selectedUser!: { id: string, avatar: string, name: string } | null | undefined;
+  @Input({ required: true }) selectedUser!: User;
 }
