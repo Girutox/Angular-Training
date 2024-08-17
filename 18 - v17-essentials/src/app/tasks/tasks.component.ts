@@ -4,6 +4,7 @@ import { TaskComponent } from "./task/task.component";
 import { DUMMY_TASKS } from '../../model/dummy-tasks';
 import { NewTaskComponent } from "./new-task/new-task.component";
 import { NewTask } from '../../model/task';
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -17,30 +18,17 @@ export class TasksComponent {
   tasks = [...DUMMY_TASKS];
   showAddTaskComponent = signal(false);
 
+  constructor(private taskService: TaskService) {}
+
   get selectedUserTasks() {
-    return this.tasks.filter(a => a.userId == this.selectedUser.id);
+    return this.taskService.getTasksByUser(this.selectedUser.id);
   }
 
   onAddTask() {
     this.showAddTaskComponent.set(true);
   }
 
-  onTaskCompleted(taskId: string) {
-    this.tasks = this.tasks.filter(a => a.id != taskId);
-  }
-
   onDismiss() {
-    this.showAddTaskComponent.set(false);
-  }
-
-  onAdd(newTask: NewTask) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: this.selectedUser.id,
-      title: newTask.title,
-      summary: newTask.summary,
-      dueDate: newTask.dueDate
-    })
     this.showAddTaskComponent.set(false);
   }
 }
