@@ -1,0 +1,17 @@
+<span>
+  <!-- {{description()}} -->
+   <ng-content />
+</span>
+<span class="icon">
+  <ng-content select="icon">
+    <!-- Fallback value -->
+    ⤵
+  </ng-content>
+</span>
+
+<!-- <ng-content select=".icon"/> -->
+<!-- @if (icon() != "") {
+  <span class="icon">
+    {{icon()}}
+  </span>
+} -->
