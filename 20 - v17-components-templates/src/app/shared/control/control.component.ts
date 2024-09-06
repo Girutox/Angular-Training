@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
+import { Component, contentChild, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -28,7 +28,11 @@ export class ControlComponent {
 
   // constructor(private hostElement: ElementRef) { }
 
+  input = contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
   onClick() {
-    console.log(this.hostElement);    
+    console.log(this.hostElement);
+    console.log(this.input());
+    
   }
 }
